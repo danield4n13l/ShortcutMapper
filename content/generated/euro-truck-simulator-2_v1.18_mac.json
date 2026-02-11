@@ -22,34 +22,25 @@
                 {"name":"Look Right", "mods":[]}
             ],
             "NUMPAD_EIGHT" : [
-                {"name":"Drive-By Camera", "mods":[]}
+                {"name":"Interior Look Up Middle", "mods":[]}
             ],
             "NUMPAD_FIVE" : [
-                {"name":"Lean Out Camera", "mods":[]}
+                {"name":"Interior Look Forward", "mods":[]}
             ],
             "NUMPAD_FOUR" : [
-                {"name":"Roof Camera", "mods":[]}
+                {"name":"Interior Look Left", "mods":[]}
             ],
             "NUMPAD_NINE" : [
-                {"name":"Next Camera", "mods":[]}
-            ],
-            "NUMPAD_ONE" : [
-                {"name":"Interior Camera", "mods":[]}
+                {"name":"Interior Look Up Right", "mods":[]}
             ],
             "NUMPAD_SEVEN" : [
-                {"name":"On-Wheel Camera", "mods":[]}
+                {"name":"Interior Look Up Left", "mods":[]}
             ],
             "NUMPAD_SIX" : [
-                {"name":"Bumper Camera", "mods":[]}
+                {"name":"Interior Look Right", "mods":[]}
             ],
             "NUMPAD_SLASH" : [
                 {"name":"Look Left", "mods":[]}
-            ],
-            "NUMPAD_THREE" : [
-                {"name":"Top-Down Camera", "mods":[]}
-            ],
-            "NUMPAD_TWO" : [
-                {"name":"Chasing Camera", "mods":[]}
             ],
             "ONE" : [
                 {"name":"Interior Camera", "mods":[]}
