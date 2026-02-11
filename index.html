@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache" />
     <meta name="viewport" content="width=1280, initial-scale=1.0">
-    <meta name="description" content="A visual shortcuts explorer for popular applications. Photoshop Shortcuts, Lightroom Shortcuts, Blender Shortcuts, Maya Shortcuts.">
-    <meta name="author" content="Waldo Bronchart">
+    <meta name="description" content="A visual keybinds explorer for games.">
+    <meta name="author" content="nehswu">
     <meta property="og:image" content="content/images/screenshot.jpg" />
     <link rel="shortcut icon" href="content/images/favicon.ico">
 
-    <title>ShortcutMapper - Keyboard Shortcuts for Popular Apps</title>
+    <title>Keybind Viewer using ShortcutMapper</title>
 
     <link href="content/stylesheets/style.css" rel="stylesheet">
 
@@ -23,32 +25,35 @@
     <script src="content/javascripts/manager.js"></script>
 
     <script type="text/javascript">
-    $(function() {
-        var shortcutMapper = new ShortcutMapper();
-        shortcutMapper.init();
-    })
+        $(function() {
+            var shortcutMapper = new ShortcutMapper();
+            shortcutMapper.init();
+        })
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4V0QK07YB"></script>
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+        window.dataLayer = window.dataLayer || [];
 
-        ga('create', 'UA-50851062-1', 'waldobronchart.github.io');
-        ga('send', 'pageview');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-C4V0QK07YB');
     </script>
 </head>
 
 <body>
     <div id="mainwrap">
         <header>
-            <h1>Application Shortcut Mapper</h1>
-            <p>A visual shortcuts explorer for popular applications.</p>
+            <h1>Keybind Viewer</h1>
+            <p>A visual keybinds explorer for games.</p>
 
             <div id="banners">
                 <ul>
                     <li class="github">
-                        <a href="https://github.com/waldobronchart/ShortcutMapper">Contribute <span class="icon"></span></a>
+                        <a href="https://github.com/nehswu/ShortcutMapper">Contribute <span class="icon"></span></a>
                     </li>
                 </ul>
             </div>
@@ -82,7 +87,7 @@
                     <div id="keyinfo"></div>
                     <div id="search">
                         <div id="searchbox">
-                            <input id="searchfield" name="searchfield" placeholder="Search for shortcuts..." />
+                            <input id="searchfield" name="searchfield" placeholder="Search for keybinds..." />
                             <span class="icon"></span>
                             <div id="search_results"></div>
                         </div>
@@ -95,9 +100,10 @@
 
         <div id="footer">
             <span>
-                Developed and maintained by <a href="http://waldobronchart.com/">Waldo Bronchart</a> (<a href="https://twitter.com/wbronchart">@wbronchart</a>)
+                Source project developed and maintained by <a href="http://waldobronchart.com/">Waldo Bronchart</a> (<a href="https://twitter.com/wbronchart">@wbronchart</a>)
             </span>
         </div>
     </div>
 </body>
+
 </html>
