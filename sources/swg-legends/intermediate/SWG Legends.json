@@ -2,7 +2,7 @@
     "name": "SWG Legends",
     "version": "1.0",
     "default_context": "ground",
-    "os": ["windows", "mac", "linux"],
+    "os": ["windows", "mac"],
     "contexts": {
         "ground": {
             "Abilities & Commands": [";", ";"],
