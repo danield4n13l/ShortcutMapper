@@ -270,7 +270,7 @@ nav button.os-linux b {
     display: inline-block;
     vertical-align: middle;
     zoom: 1;
-    *display: inline;
+    display: inline !ie7;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -568,20 +568,15 @@ div#keyboard button .shortcut {
     word-wrap: break-word;
 }
 
-div#keyboard button.nomod.hasitems:hover .shortcut,
-div#keyboard button.hasitems.alt:hover .shortcut,
-div#keyboard button.hasitems.control:hover .shortcut,
-div#keyboard button.hasitems.command:hover .shortcut,
-div#keyboard button.hasitems.shift:hover .shortcut,
-div#keyboard button.hasitems.other:hover .shortcut,
-div#keyboard button.hasitems.multi:hover .shortcut
+div#keyboard button.hasitems:hover .shortcut,
+div#keyboard button.hasitems.pressed .shortcut
 {
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;
     display: block;
     text-align: center;
-    font-size: 0.5vw;
+    font-size: 1vw;
 }
 
 /* div#keyboard button.nomod.hasitems:hover .label,
@@ -604,14 +599,18 @@ div#keyboard button.hasitems.shift:hover,
 div#keyboard button.hasitems.other:hover, 
 div#keyboard button.hasitems.multi:hover
 {
-    transition: transform .2s;
-    transform: scale(1.7);
-    z-index: 10;
 }
 
 div#keyboard button.hasitems:hover,
 div#keyboard button.hasitems.pressed {
     outline: 1px solid #000;
+    transition: transform .2s;
+    transform: scale(1.5);
+    z-index: 10;
+}
+
+div#keyboard div.keyitems {
+    background: inherit;
 }
 
 div#keyboard button:hover .shortcut ,
@@ -621,8 +620,8 @@ div#keyboard button.pressed .shortcut {
     overflow: visible;
     background: inherit;
     max-height: none;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 1vw;
+    line-height: 1.5vw;
     word-wrap: normal;
     top: 20px;
     left: 50%;
