@@ -8,7 +8,8 @@
         options: {
             keydata: {},
             mods: [],
-            context: 0
+            context: 0,
+            captureKeys: false
         },
 
         activeModKeys: [],
@@ -83,14 +84,23 @@
             this._update();
         },
 
-        _keyDown: function(e) {
+        _keyDown: function (e) {
+            // Check if we want to capture keys
+            if (!this.options.captureKeys) { return; }
+
             var keyName = window.utils.keyCodeMap[e.which];
 
+            /* DELETEME We want to prevent almost any special combinations
+                        not just modifiers.
+                        Certain combinations will still fire.
             // Is key a modifier key?
             if ($.inArray(keyName, this.options.mods) >= 0) {
                 e.preventDefault();
-            }
+            } */
 
+            // Try to prevent default actions for all keys
+            e.preventDefault();
+            
             // Escape key clears all modifier activeness
             if (keyName === "ESCAPE") {
                 this._clearActiveModifiers();
@@ -103,12 +113,19 @@
         },
 
         _keyUp: function(e) {
+            // Check if we want to capture keys
+            if (!this.options.captureKeys) { return; }
+
             var keyName = window.utils.keyCodeMap[e.which];
 
+            /* DELETEME We want to prevent almost any special combinations
             // Is key a modifier key?
             if ($.inArray(keyName, this.options.mods) >= 0) {
                 e.preventDefault();
-            }
+            } */
+            
+            // Try to prevent default actions for all keys
+            e.preventDefault();
 
             $(this.element).find(`[data-key=${keyName}]`).removeClass("mod-active pressed");
             this._deactivateModifiers([keyName]);

@@ -7,6 +7,7 @@ function ShortcutMapper() {
     this.selectedContext = null;
     this.selectedOS = null;
     this.selectedKeyboardType = null;
+    this.isKeyboardCaptured = null;
 
     this.minSearchLength = 2;
     this.maxSearchResults = 50;
@@ -40,10 +41,14 @@ function ShortcutMapper() {
         this.elemVersionSelect = $("#version_select");
         this.elemContextSelect = $("#context_select");
         this.elemKeyboardTypeSelect = $("#keyboardtype_select");
+        this.elemKeyboardCaptureToggle = $("#keyboard_capture");
 
         // Set Application and OS
         this.selectApplication(this.selectedApp.name);
         this.selectedOS = this._getCurrentOS();
+
+        // Set keyboard capture to false by default
+        this.isKeyboardCaptured = false;
 
         // Init ui
         $("select.chosen-select").chosen({
@@ -82,6 +87,17 @@ function ShortcutMapper() {
         this.elemKeyboardTypeSelect.on("change", function() {
             self.selectedKeyboardType = $(this).val();
             self._updateKeyboard();
+        });
+        this.elemKeyboardCaptureToggle.click(function () {
+            self.isKeyboardCaptured = !self.isKeyboardCaptured;
+            if (self.isKeyboardCaptured) {
+                $(this).addClass("checked");
+                self.elemKeyboard.keyboard("option", "captureKeys", true);
+            }
+            else {
+                $(this).removeClass("checked");
+                self.elemKeyboard.keyboard("option", "captureKeys", false);
+            }
         });
 
         // Load in the keyboard html and available shotcut contexts
