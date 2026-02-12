@@ -579,32 +579,8 @@ div#keyboard button.hasitems.pressed .shortcut
     font-size: 1vw;
 }
 
-/* DELETEME Old comments
-div#keyboard button.nomod.hasitems:hover .label,
-div#keyboard button.hasitems.alt:hover .label,
-div#keyboard button.hasitems.control:hover .label,
-div#keyboard button.hasitems.command:hover .label,
-div#keyboard button.hasitems.shift:hover .label,
-div#keyboard button.hasitems.other:hover .label,
-div#keyboard button.hasitems.multi:hover .label
-{
-    font-size: 10px;
-    max-width: 24pt;
-} */
-
-/*DELETEME These serve no purpose if a broader selector (like the above) is on*/
-div#keyboard button.nomod.hasitems:hover,
-div#keyboard button.hasitems.alt:hover,
-div#keyboard button.hasitems.control:hover,
-div#keyboard button.hasitems.command:hover,
-div#keyboard button.hasitems.shift:hover,
-div#keyboard button.hasitems.other:hover, 
-div#keyboard button.hasitems.multi:hover
-{
-}
-
-div#keyboard button.hasitems:hover,
-div#keyboard button.hasitems.pressed {
+div#keyboard button.hasitems:hover:is(.nomod,.control,.command,.alt,.shift,.multi,.other),
+div#keyboard button.hasitems.pressed:is(.nomod,.control,.command,.alt,.shift,.multi,.other) {
     outline: 1px solid #000;
     transition: transform .2s;
     transform: scale(1.5);
