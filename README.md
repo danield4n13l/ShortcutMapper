@@ -2,7 +2,7 @@ ShortcutMapper
 ==================
 
 This is a keyboard shortcuts visualiser hosted here on Github:
-http://waldobronchart.github.io/ShortcutMapper/
+http://waldobronchart.github.io/ShortcutMapper/ <!-- TODO replace url with own -->
 
 The goal of this project is to map out application keyboard shortcuts onto a virtual keyboard, making it easy to find and learn new shortcuts. The shortcut data is scraped from online documentation to reduce error and to keep the data easy to update with newer versions.
 
