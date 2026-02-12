@@ -579,7 +579,8 @@ div#keyboard button.hasitems.pressed .shortcut
     font-size: 1vw;
 }
 
-/* div#keyboard button.nomod.hasitems:hover .label,
+/* DELETEME Old comments
+div#keyboard button.nomod.hasitems:hover .label,
 div#keyboard button.hasitems.alt:hover .label,
 div#keyboard button.hasitems.control:hover .label,
 div#keyboard button.hasitems.command:hover .label,
@@ -591,6 +592,7 @@ div#keyboard button.hasitems.multi:hover .label
     max-width: 24pt;
 } */
 
+/*DELETEME These serve no purpose if a broader selector (like the above) is on*/
 div#keyboard button.nomod.hasitems:hover,
 div#keyboard button.hasitems.alt:hover,
 div#keyboard button.hasitems.control:hover,
@@ -615,14 +617,14 @@ div#keyboard div.keyitems {
 
 div#keyboard button:hover .shortcut ,
 div#keyboard button.pressed .shortcut {
-    width: 250%;
-    max-width: 150px;
+    width: 200%;
+    max-width: 25vw;
     overflow: visible;
     background: inherit;
     max-height: none;
     font-size: 1vw;
     line-height: 1.5vw;
-    word-wrap: normal;
+    word-wrap: break-word;
     top: 20px;
     left: 50%;
     transform: translate(-50%,0);
