@@ -347,6 +347,18 @@ function ShortcutMapper() {
         $("#search_results").hide();
         $("#search_blurdetect").hide();
         this.elemKeyboard.data("keyboard").exitHighlightMode();
+        // BUG: Exiting search throws an uncaught TypeError when inputblurrer is clicked without keyboard data tag initialized
+        /*
+            manager.js:349 Uncaught TypeError: Cannot read properties of undefined (reading 'exitHighlightMode')
+                at ShortcutMapper._exitSearch (manager.js:349:43)
+                at HTMLDivElement.<anonymous> (manager.js:148:18)
+                at HTMLDivElement.dispatch (jquery-3.7.1.min.js:2:40035)
+                at v.handle (jquery-3.7.1.min.js:2:38006)
+            ShortcutMapper._exitSearch @ manager.js:349
+            (anonymous) @ manager.js:148
+            dispatch @ jquery-3.7.1.min.js:2
+            v.handle @ jquery-3.7.1.min.js:2
+        */
     };
 
     this._searchBoxUpdate = function(e, searchText) {
