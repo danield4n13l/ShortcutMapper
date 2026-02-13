@@ -116,7 +116,7 @@
             ) { return; }
 
             var keyName = window.utils.keyCodeMap[e.which];
-
+            
             // Try to prevent default actions for all keys
             e.preventDefault();
 

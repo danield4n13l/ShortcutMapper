@@ -19,7 +19,7 @@ function ShortcutMapper() {
         shortcut: null
     };
 
-    this.init = function() {
+    this.init = function () {
         var self = this,
             hash = window.location.hash.substring(1).split('#');
 
@@ -62,17 +62,17 @@ function ShortcutMapper() {
         this._initSearchBox();
 
         // Events
-        this.elemAppSelect.on("change", function() {
+        this.elemAppSelect.on("change", function () {
             var val = $(this).val();
             self.selectApplication(val);
             self._updateVersionOptions(0);
             self._fetchAppKeydataAndUpdate();
         });
-        this.elemVersionSelect.on("change", function() {
+        this.elemVersionSelect.on("change", function () {
             self.selectedVersion = $(this).val();
             self._fetchAppKeydataAndUpdate();
         });
-        this.elemContextSelect.on("change", function() {
+        this.elemContextSelect.on("change", function () {
             self.selectedContext = $(this).val();
             self.elemKeyboard.keyboard("option", "context", self.selectedContext);
 
@@ -84,7 +84,7 @@ function ShortcutMapper() {
             self.selectedOS = $(this).attr("data-os");
             self._fetchAppKeydataAndUpdate();
         });
-        this.elemKeyboardTypeSelect.on("change", function() {
+        this.elemKeyboardTypeSelect.on("change", function () {
             self.selectedKeyboardType = $(this).val();
             self._updateKeyboard();
         });
@@ -110,15 +110,15 @@ function ShortcutMapper() {
         this._fetchAppKeydataAndUpdate(hash[1]);
     };
 
-    this._initSearchBox = function() {
+    this._initSearchBox = function () {
         var self = this;
         var input = $("#searchbox input");
         var inputBlurrer = $("#search_blurdetect");
 
-        input.keyup(function(e) {
+        input.keyup(function (e) {
             self._searchBoxUpdate(e, $(this).val());
 
-        }).keydown(function(e) {
+        }).keydown(function (e) {
             // Escape key clears the search bar and hides results
             var updateHighlight = false;
             if (e.which === $.ui.keyCode.UP) {
@@ -138,25 +138,25 @@ function ShortcutMapper() {
                 }
             }
 
-        }).focus(function() {
+        }).focus(function () {
             input.addClass("active");
             //self._searchBoxUpdate(e, $(this).val());
             inputBlurrer.show();
         });
 
-        inputBlurrer.mousedown(function() {
+        inputBlurrer.mousedown(function () {
             self._exitSearch();
         });
     };
 
-    this._appNameToHash = function(name) {
+    this._appNameToHash = function (name) {
         return name.replace(/ /g, "");
     };
-    this._appContextToHash = function(context) {
+    this._appContextToHash = function (context) {
         return context.replace(/ /g, "");
     };
 
-    this.selectApplication = function(name) {
+    this.selectApplication = function (name) {
         name = name.toLowerCase();
         if (name === this.selectedApp.name.toLowerCase()) {
             return;
@@ -173,7 +173,7 @@ function ShortcutMapper() {
         console.error("selected application that doesn't exist in data");
     };
 
-    this.selectContext = function(name) {
+    this.selectContext = function (name) {
         if (name === this.selectedContext) {
             return;
         }
@@ -188,8 +188,8 @@ function ShortcutMapper() {
 
 
 
-    this._updateAppOptions = function(selected) {
-        var applicationNames = sitedata_apps.map(function(app) { return app.name; }).sort();
+    this._updateAppOptions = function (selected) {
+        var applicationNames = sitedata_apps.map(function (app) { return app.name; }).sort();
         var newAppName = this._setSelectOptions(this.elemAppSelect, selected, applicationNames);
 
         // In case the app didn't exist in list
@@ -198,22 +198,22 @@ function ShortcutMapper() {
         }
     };
 
-    this._updateVersionOptions = function(selected) {
+    this._updateVersionOptions = function (selected) {
         // get all versions from the keys of the selectedApp.data element
         var applicationVersions = Object.keys(this.selectedApp.data).sort().reverse();
         this.selectedVersion = this._setSelectOptions(this.elemVersionSelect, selected, applicationVersions);
     };
 
-    this._updateContextOptions = function(selected) {
+    this._updateContextOptions = function (selected) {
         // the datasheet contains all contexts and shortcuts for the application
         this.selectedContext = this._setSelectOptions(this.elemContextSelect, selected, Object.keys(this.selectedAppData.contexts));
     };
 
-    this._updateKeyboardTypeOptions = function(selected) {
+    this._updateKeyboardTypeOptions = function (selected) {
         this.selectedKeyboardType = this._setSelectOptions(this.elemKeyboardTypeSelect, selected, Object.keys(sitedata_keyboards));
     };
 
-    this._setSelectOptions = function(element, selected, options) {
+    this._setSelectOptions = function (element, selected, options) {
         var html_options = "";
         var max_option_length = 0;
         var final_selected = null;
@@ -246,7 +246,7 @@ function ShortcutMapper() {
 
 
 
-    this._fetchAppKeydataAndUpdate = function(context = undefined) {
+    this._fetchAppKeydataAndUpdate = function (context = undefined) {
         var self = this;
         var filename = this.selectedApp.data[this.selectedVersion][this.selectedOS];
         $.ajax({
@@ -254,7 +254,7 @@ function ShortcutMapper() {
             dataType: "json"
         }).done(function (keydata) {
             self.selectedAppData = keydata;
-            
+
             var new_context = keydata.default_context;
 
             // Select context if present from hash
@@ -269,17 +269,17 @@ function ShortcutMapper() {
                 };
             };
             self.selectedContext = new_context;
-            
+
             self._updateContextOptions(self.selectedContext);
             self._updateKeyboard();
 
             self._updateHash(self.selectedContext);
-        }).fail(function() {
+        }).fail(function () {
             $("#keycontent").html("There is no data available for this OS or App Version (try selecting a different app version)");
         });
     };
 
-    this._updateKeyboard = function() {
+    this._updateKeyboard = function () {
         // Clear keyboard html contents
         // Todo: add some sort of loading thing
         $("#keycontent").html("");
@@ -289,7 +289,7 @@ function ShortcutMapper() {
         $.ajax({
             url: "content/keyboards/" + filename,
             dataType: "html"
-        }).done(function(content) {
+        }).done(function (content) {
 
             // Strip stylesheet from content and add to page DOM
             content = content.replace(/<link\b[^>]*>/i, "");
@@ -303,12 +303,12 @@ function ShortcutMapper() {
                 'context': self.selectedContext
             });
             self.elemKeyboard.show();
-        }).fail(function() {
+        }).fail(function () {
             $("#keycontent").html("KEYBOARD NOT FOUND (Possibly doesn't exist for selected OS)");
         });
     };
 
-    this._getCurrentOS = function() {
+    this._getCurrentOS = function () {
         var userAgent = window.navigator.userAgent.toLowerCase(),
             re_mac = /macintosh|macintel|macppc|mac68k|iphone|ipad|ipod/,
             re_win = /win32|win64|windows|wince|android/,
@@ -326,7 +326,7 @@ function ShortcutMapper() {
         return os;
     };
 
-    this._updateHash = function(context) {
+    this._updateHash = function (context) {
         var self = this;
         var newhash = [
             self._appNameToHash(self.selectedApp.name),
@@ -341,7 +341,7 @@ function ShortcutMapper() {
 
 
 
-    this._exitSearch = function() {
+    this._exitSearch = function () {
         $("#searchbox input").removeClass("active");
         this.selectedSearchResult = -1;
         $("#search_results").hide();
@@ -349,7 +349,7 @@ function ShortcutMapper() {
         this.elemKeyboard.data("customKeyboard").exitHighlightMode();
     };
 
-    this._searchBoxUpdate = function(e, searchText) {
+    this._searchBoxUpdate = function (e, searchText) {
         var input = $("#searchbox input");
         var results = $("#search_results");
         var self = this;
@@ -453,7 +453,7 @@ function ShortcutMapper() {
         }
     };
 
-    this.highlightShortcut = function(contextName, keyName, shortcut) {
+    this.highlightShortcut = function (contextName, keyName, shortcut) {
         this.selectContext(contextName);
         this.elemKeyboard.data("customKeyboard").highlightShortcut(keyName, shortcut);
     };
