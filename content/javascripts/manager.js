@@ -78,7 +78,7 @@ function ShortcutMapper() {
 
             self._updateHash(self.selectedContext);
         });
-        $("nav button.os-radiobutton").click(function() {
+        $("nav button.os-radiobutton").on("click", function () {
             $("nav button.os-radiobutton").removeClass("checked");
             $(this).addClass("checked");
             self.selectedOS = $(this).attr("data-os");
@@ -88,20 +88,20 @@ function ShortcutMapper() {
             self.selectedKeyboardType = $(this).val();
             self._updateKeyboard();
         });
-        this.elemKeyboardCaptureToggle.click(function () {
+        this.elemKeyboardCaptureToggle.on("click", function () {
             self.isKeyboardCaptured = !self.isKeyboardCaptured;
             if (self.isKeyboardCaptured) {
                 $(this).addClass("checked");
                 $(this).children("span").text("Capture is on");
-                $(this).children("i").removeClass("ph-lock-open");
-                $(this).children("i").addClass("ph-lock");
+                $(this).find("i").removeClass("ph-lock-open ph");
+                $(this).find("i").addClass("ph-lock ph-bold");
                 self.elemKeyboard.keyboard("option", "captureKeys", true);
             }
             else {
                 $(this).removeClass("checked");
                 $(this).children("span").text("Capture is off");
-                $(this).children("i").addClass("ph-lock-open");
-                $(this).children("i").removeClass("ph-lock");
+                $(this).find("i").addClass("ph-lock-open ph");
+                $(this).find("i").removeClass("ph-lock ph-bold");
                 self.elemKeyboard.keyboard("option", "captureKeys", false);
             }
         });
@@ -181,7 +181,7 @@ function ShortcutMapper() {
         this.selectedContext = name;
         this.elemContextSelect.val(name);
         this.elemContextSelect.trigger("chosen:updated");
-        this.elemKeyboard.data("keyboard").switchContext(this.selectedContext);
+        this.elemKeyboard.data("customKeyboard").switchContext(this.selectedContext);
     };
 
 
@@ -346,19 +346,7 @@ function ShortcutMapper() {
         this.selectedSearchResult = -1;
         $("#search_results").hide();
         $("#search_blurdetect").hide();
-        this.elemKeyboard.data("keyboard").exitHighlightMode();
-        // BUG: Exiting search throws an uncaught TypeError when inputblurrer is clicked without keyboard data tag initialized
-        /*
-            manager.js:349 Uncaught TypeError: Cannot read properties of undefined (reading 'exitHighlightMode')
-                at ShortcutMapper._exitSearch (manager.js:349:43)
-                at HTMLDivElement.<anonymous> (manager.js:148:18)
-                at HTMLDivElement.dispatch (jquery-3.7.1.min.js:2:40035)
-                at v.handle (jquery-3.7.1.min.js:2:38006)
-            ShortcutMapper._exitSearch @ manager.js:349
-            (anonymous) @ manager.js:148
-            dispatch @ jquery-3.7.1.min.js:2
-            v.handle @ jquery-3.7.1.min.js:2
-        */
+        this.elemKeyboard.data("customKeyboard").exitHighlightMode();
     };
 
     this._searchBoxUpdate = function(e, searchText) {
@@ -467,6 +455,6 @@ function ShortcutMapper() {
 
     this.highlightShortcut = function(contextName, keyName, shortcut) {
         this.selectContext(contextName);
-        this.elemKeyboard.data("keyboard").highlightShortcut(keyName, shortcut);
+        this.elemKeyboard.data("customKeyboard").highlightShortcut(keyName, shortcut);
     };
 }

@@ -85,20 +85,17 @@
         },
 
         _keyDown: function (e) {
-            // Check if we want to capture keys
-            if (!this.options.captureKeys) { return; }
+            // Check if we want to capture keys OR a search bar is focused
+            if (!this.options.captureKeys ||
+                (document.activeElement && (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA"))
+            ) { return; }
 
             var keyName = window.utils.keyCodeMap[e.which];
 
-            /* DELETEME We want to prevent almost any special combinations
-                        not just modifiers.
-                        Certain combinations will still fire.
-            // Is key a modifier key?
-            if ($.inArray(keyName, this.options.mods) >= 0) {
-                e.preventDefault();
-            } */
-
             // Try to prevent default actions for all keys
+            /* 
+            This won't prevent crucial shortcuts like Ctrl+T or Ctrl+W
+            */
             e.preventDefault();
             
             // Escape key clears all modifier activeness
@@ -113,17 +110,13 @@
         },
 
         _keyUp: function(e) {
-            // Check if we want to capture keys
-            if (!this.options.captureKeys) { return; }
+            // Check if we want to capture keys OR a search bar is focused
+            if (!this.options.captureKeys ||
+                (document.activeElement && (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA"))
+            ) { return; }
 
             var keyName = window.utils.keyCodeMap[e.which];
 
-            /* DELETEME We want to prevent almost any special combinations
-            // Is key a modifier key?
-            if ($.inArray(keyName, this.options.mods) >= 0) {
-                e.preventDefault();
-            } */
-            
             // Try to prevent default actions for all keys
             e.preventDefault();
 
