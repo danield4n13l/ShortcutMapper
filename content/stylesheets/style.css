@@ -27,6 +27,21 @@ body {
     width: 100%;
 }
 
+/** Icons  *******************************************/
+
+.ph {
+    display: inline-block;
+    color: black;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.ph.inline {
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+}
+
 /** Header *******************************************/
 
 header {
@@ -78,23 +93,16 @@ header p {
 }
 
 #banners li a {
-    display: block;
+    display: flex;
     position: relative;
-    padding: 8px 40px 8px 10px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
     color: #fff;
     font-size: 0.7em;
     font-weight: 400;
     text-decoration: none;
     margin: 0px;
-}
-
-#banners li a .icon {
-    position: absolute;
-    top: 3px;
-    right: 7px;
-    display: block;
-    width: 24px;
-    height: 24px;
 }
 
 #banners li.github a {
@@ -107,10 +115,13 @@ header p {
     background-color: #414141;
 }
 
-#banners li.github a .icon {
-    background: url('../images/sprites.png') no-repeat 0 -47px;
+#banners li.github a i {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    color: white;
+    padding-left: .5em;
 }
-
 
 /** Content layout ***********************************/
 
@@ -156,6 +167,8 @@ header p {
     height: 250px;
 }
 
+/*** NAVIGATION **************************************/
+
 /* Common input styles ******/
 
 nav input,
@@ -190,15 +203,15 @@ nav button.checked,
     background-image: linear-gradient(top, rgb(226, 226, 226) 0%, rgb(243, 243, 243) 100%);
 }
 
-/*** NAVIGATION *****************************************************/
-
 nav {
-    display: inline-block;
+    display: inline-flex;
     margin: 36px auto;
     text-align: left;
 }
 
 nav .inputgroup {
+    display: flex;
+    align-items: center;
     float: left;
     margin-right: 35px;
 }
@@ -271,43 +284,10 @@ nav button.os-radiobutton {
     padding: 7px 9px 7px 9px;
 }
 
-nav button.os-radiobutton b {
-    display: block;
-    width: 17px;
-    height: 17px;
-    background: url('../images/sprites.png') no-repeat 0px 0px;
-    padding: 0px;
-}
-
-nav button.os-windows b {
-    background-position: 0px -30px;
-}
-
-nav button.os-mac b {
-    background-position: -17px -30px;
-}
-
-nav button.os-linux b {
-    background-position: -34px -30px;
-}
-
-
 nav button.keyboard-togglebutton {
     height: 34px;
     line-height: 1px;
     padding: 7px 9px 7px 9px;
-}
-
-nav button.keyboard-togglebutton b {
-    display: block;
-    width: 17px;
-    height: 17px;
-    background: url('../images/sprites.png') no-repeat -18px -14px;
-    padding: 0px;
-}
-
-nav button.keyboard-togglebutton.checked b {
-    background-position: -0px -14px;
 }
 
 /*** CHOSEN PLUGIN STYLING *********************************************/

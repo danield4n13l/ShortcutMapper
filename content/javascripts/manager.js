@@ -92,10 +92,16 @@ function ShortcutMapper() {
             self.isKeyboardCaptured = !self.isKeyboardCaptured;
             if (self.isKeyboardCaptured) {
                 $(this).addClass("checked");
+                $(this).children("span").text("Capture is on");
+                $(this).children("i").removeClass("ph-lock-open");
+                $(this).children("i").addClass("ph-lock");
                 self.elemKeyboard.keyboard("option", "captureKeys", true);
             }
             else {
                 $(this).removeClass("checked");
+                $(this).children("span").text("Capture is off");
+                $(this).children("i").addClass("ph-lock-open");
+                $(this).children("i").removeClass("ph-lock");
                 self.elemKeyboard.keyboard("option", "captureKeys", false);
             }
         });

@@ -13,6 +13,8 @@
     <title>Keybind Viewer using ShortcutMapper</title>
 
     <link href="content/stylesheets/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
 
     <script src="content/javascripts/jquery-2.0.3.min.js"></script>
     <script src="content/javascripts/jquery-ui-1.9.2.min.js"></script>
@@ -53,7 +55,9 @@
             <div id="banners">
                 <ul>
                     <li class="github">
-                        <a href="https://github.com/nehswu/ShortcutMapper">Contribute <span class="icon"></span></a>
+                        <a href="https://github.com/danield4n13l/ShortcutMapper">
+                            Contribute <i class="ph ph-github-logo"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -70,12 +74,18 @@
                 </div>
                 <div class="inputgroup">
                     <!-- leave no spaces between buttons -->
-                    <button id="os_windows" class="os-radiobutton os-windows leftfield" data-os="windows"><b></b>
-                    </button><button id="os_osx" class="os-radiobutton os-mac midfield" data-os="mac"><b></b>
-                    </button><button id="os_linux" class="os-radiobutton os-linux rightfield" data-os="windows"><b></b></button>
+                    <button id="os_windows" class="os-radiobutton os-windows leftfield" data-os="windows">
+                        <i class="ph ph-windows-logo"></i></button>
+                    <button id="os_osx" class="os-radiobutton os-mac midfield" data-os="mac">
+                        <i class="ph ph-apple-logo"></i></button>
+                    <button id="os_linux" class="os-radiobutton os-linux rightfield" data-os="windows">
+                        <i class="ph ph-linux-logo"></i></button>
                 </div>
                 <div class="inputgroup">
-                    <button id="keyboard_capture" class="keyboard-togglebutton" data-os="windows"><b></b></button>
+                    <button id="keyboard_capture" class="keyboard-togglebutton" data-capture="off">
+                        <span>Capture is off</span>
+                        <i class="inline ph ph-lock-open"></i>
+                    </button>
                 </div>
                 <div class="inputgroup">
                     <select id="keyboardtype_select" name="keyboardtype_select" class="chosen-select keyboard-select"></select>
