@@ -267,6 +267,51 @@ nav .inputgroup .rightfield .chosen-single {
     width: 175px;
 }
 
+#keyboard_capture {
+    width: 125px;
+}
+
+nav button {
+    min-height: 36px;
+    height: 100%;
+    padding: 7px 9px 7px 9px;
+    display: block;
+    align-items: center;
+    cursor: pointer;
+}
+
+nav button span {
+    display: block;
+    box-sizing: border-box;
+    margin-right: 2em;
+}
+
+nav button div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 2em;
+    height: 100%;
+    align-content: center;
+}
+
+nav button > i.ph {
+    align-self: center;
+    display: block;
+}
+
+nav button div i.ph {
+    display: block;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+}
+
+
+
+/*** CHOSEN PLUGIN STYLING ***************************/
+
 nav .chosen-container-single.keyboard-select .chosen-single div {
     width: 36px;
 }
@@ -280,18 +325,6 @@ nav .chosen-container-single.keyboard-select .chosen-single div b {
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgMjU2Ij48cGF0aCBmaWxsPSIjNTU1IiBkPSJNMjI0IDQ4SDMyYTE2IDE2IDAgMCAwLTE2IDE2djEyOGExNiAxNiAwIDAgMCAxNiAxNmgxOTJhMTYgMTYgMCAwIDAgMTYtMTZWNjRhMTYgMTYgMCAwIDAtMTYtMTZtMCAxNDRIMzJWNjRoMTkyem0tMTYtNjRhOCA4IDAgMCAxLTggOEg1NmE4IDggMCAwIDEgMC0xNmgxNDRhOCA4IDAgMCAxIDggOG0wLTMyYTggOCAwIDAgMS04IDhINTZhOCA4IDAgMCAxIDAtMTZoMTQ0YTggOCAwIDAgMSA4IDhNNzIgMTYwYTggOCAwIDAgMS04IDhoLThhOCA4IDAgMCAxIDAtMTZoOGE4IDggMCAwIDEgOCA4bTk2IDBhOCA4IDAgMCAxLTggOEg5NmE4IDggMCAwIDEgMC0xNmg2NGE4IDggMCAwIDEgOCA4bTQwIDBhOCA4IDAgMCAxLTggOGgtOGE4IDggMCAwIDEgMC0xNmg4YTggOCAwIDAgMSA4IDhNMzg0IDMzLjE3OWMtMi4zNTcgMC00LjcxNC45NjQtNy4yODUgMy4xMDdMMzA0LjUgOTQuODkzYy0xLjgyMSAxLjYwNy0yLjg5MyAzLjg1Ny0yLjg5MyA3LjA3MSAwIDUuNTcyIDQuMTc5IDkuNzUgOS44NTcgOS43NSAyLjI1IDAgNC42MDctLjg1NyA3LjA3Mi0yLjc4NkwzODQgNTUuNTcxbDY1LjQ2NCA1My4zNTdjMi40NjUgMS45MyA0LjgyMiAyLjc4NiA3LjE3OSAyLjc4NiA1LjU3MSAwIDkuNzUtNC4xNzggOS43NS05Ljc1IDAtMy4yMTQtMS4wNzItNS40NjQtMi44OTMtNy4wNzFsLTcyLjIxNS01OC43MTVjLTIuNTctMi4wMzUtNC44MjEtMy03LjI4NS0zbTAgMTg5LjY0MmMyLjQ2NCAwIDQuNzE0LS45NjQgNy4yODUtM2w3Mi4yMTUtNTguNzE0YzEuODIxLTEuNjA3IDIuODkzLTMuODU3IDIuODkzLTcuMDcxIDAtNS41NzItNC4xNzktOS44NTctOS43NS05Ljg1Ny0yLjM1NyAwLTQuNzE0Ljk2NC03LjE3OSAyLjg5MkwzODQgMjAwLjQyOGwtNjUuNDY0LTUzLjM1N3EtMy42OTctMi44OTItNy4wNzItMi44OTJjLTUuNjc4IDAtOS44NTcgNC4yODUtOS44NTcgOS44NTcgMCAzLjIxNCAxLjA3MiA1LjQ2NCAyLjg5MyA3LjA3MWw3Mi4yMTUgNTguNjA3YzIuNTcgMi4xNDMgNC45MjggMy4xMDcgNy4yODUgMy4xMDciLz48L3N2Zz4=") no-repeat right 5px top 52%;
     background-size: 30px 15px;
 }
-
-
-nav button {
-    min-height: 36px;
-    height: 100%;
-    padding: 7px 9px 7px 9px;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-}
-
-/*** CHOSEN PLUGIN STYLING ***************************/
 
 .chosen-container {
     position: relative;
