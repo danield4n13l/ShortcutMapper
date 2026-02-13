@@ -3,6 +3,8 @@ Sticky footer implemented like this:
 https://github.com/timothylong/Responsive-Sticky-Footer/blob/master/index.html
 */
 
+/** Basic ********************************************/
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
 
@@ -31,7 +33,7 @@ body {
 
 .ph {
     display: inline-block;
-    color: black;
+    color: #555;
     font-size: 16px;
     width: 16px;
     height: 16px;
@@ -67,7 +69,7 @@ header p {
     margin: 0;
 }
 
-/* CONTRIBUTE */
+/** CONTRIBUTE ***************************************/
 
 #banners {
     display: block;
@@ -187,7 +189,9 @@ nav .chosen-container-single .chosen-single,
     background-clip: padding-box;
     box-shadow: 0 0 1px 1px #d0d0d0,
         0 2px 1px 0px #d0d0d0;
-    font-size: 0.8em;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: inherit;
     font-weight: 400;
     text-decoration: none;
     color: #606060;
@@ -248,49 +252,46 @@ nav .inputgroup .rightfield .chosen-single {
 }
 
 #application_select {
-    width: 160px;
+    width: 175px;
 }
 
 #version_select {
-    width: 75px;
+    width: 100px;
 }
 
 #context_select {
-    width: 260px;
+    width: 275px;
 }
 
 #keyboardtype_select {
     width: 175px;
 }
 
-nav .chosen-container-single.keyboard-select .chosen-single {
-    padding-right: 10px;
-}
-
 nav .chosen-container-single.keyboard-select .chosen-single div {
-    width: 34px;
-    height: 14px;
+    width: 36px;
 }
-
 nav .chosen-container-single.keyboard-select .chosen-single div b {
     padding-right: 10px;
-    background: url('../images/sprites.png') no-repeat -10px 0px;
+    /* ph-keyboard SVG in CSS 
+        butchered together with the default selector open SVG, and re-minimized*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgMjU2Ij48cGF0aCBmaWxsPSIjNTU1IiBkPSJNMjI0IDQ4SDMyYTE2IDE2IDAgMCAwLTE2IDE2djEyOGExNiAxNiAwIDAgMCAxNiAxNmgxOTJhMTYgMTYgMCAwIDAgMTYtMTZWNjRhMTYgMTYgMCAwIDAtMTYtMTZtMCAxNDRIMzJWNjRoMTkyem0tMTYtNjRhOCA4IDAgMCAxLTggOEg1NmE4IDggMCAwIDEgMC0xNmgxNDRhOCA4IDAgMCAxIDggOG0wLTMyYTggOCAwIDAgMS04IDhINTZhOCA4IDAgMCAxIDAtMTZoMTQ0YTggOCAwIDAgMSA4IDhNNzIgMTYwYTggOCAwIDAgMS04IDhoLThhOCA4IDAgMCAxIDAtMTZoOGE4IDggMCAwIDEgOCA4bTk2IDBhOCA4IDAgMCAxLTggOEg5NmE4IDggMCAwIDEgMC0xNmg2NGE4IDggMCAwIDEgOCA4bTQwIDBhOCA4IDAgMCAxLTggOGgtOGE4IDggMCAwIDEgMC0xNmg4YTggOCAwIDAgMSA4IDhNMzg0IDMzLjE3OWMtMi4zNTcgMC00LjcxNC45NjQtNy4yODUgMy4xMDdMMzA0LjUgOTQuODkzYy0xLjgyMSAxLjYwNy0yLjg5MyAzLjg1Ny0yLjg5MyA3LjA3MSAwIDUuNTcyIDQuMTc5IDkuNzUgOS44NTcgOS43NSAyLjI1IDAgNC42MDctLjg1NyA3LjA3Mi0yLjc4NkwzODQgNTUuNTcxbDY1LjQ2NCA1My4zNTdjMi40NjUgMS45MyA0LjgyMiAyLjc4NiA3LjE3OSAyLjc4NiA1LjU3MSAwIDkuNzUtNC4xNzggOS43NS05Ljc1IDAtMy4yMTQtMS4wNzItNS40NjQtMi44OTMtNy4wNzFsLTcyLjIxNS01OC43MTVjLTIuNTctMi4wMzUtNC44MjEtMy03LjI4NS0zbTAgMTg5LjY0MmMyLjQ2NCAwIDQuNzE0LS45NjQgNy4yODUtM2w3Mi4yMTUtNTguNzE0YzEuODIxLTEuNjA3IDIuODkzLTMuODU3IDIuODkzLTcuMDcxIDAtNS41NzItNC4xNzktOS44NTctOS43NS05Ljg1Ny0yLjM1NyAwLTQuNzE0Ljk2NC03LjE3OSAyLjg5MkwzODQgMjAwLjQyOGwtNjUuNDY0LTUzLjM1N3EtMy42OTctMi44OTItNy4wNzItMi44OTJjLTUuNjc4IDAtOS44NTcgNC4yODUtOS44NTcgOS44NTcgMCAzLjIxNCAxLjA3MiA1LjQ2NCAyLjg5MyA3LjA3MWw3Mi4yMTUgNTguNjA3YzIuNTcgMi4xNDMgNC45MjggMy4xMDcgNy4yODUgMy4xMDciLz48L3N2Zz4=") no-repeat right 5px top 52%;
+    background-size: 30px 15px;
 }
 
 
-nav button.os-radiobutton {
-    height: 34px;
-    line-height: 1px;
+nav button {
+    min-height: 36px;
+    height: 100%;
     padding: 7px 9px 7px 9px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
 }
 
-nav button.keyboard-togglebutton {
-    height: 34px;
-    line-height: 1px;
-    padding: 7px 9px 7px 9px;
-}
-
-/*** CHOSEN PLUGIN STYLING *********************************************/
+/*** CHOSEN PLUGIN STYLING ***************************/
 
 .chosen-container {
     position: relative;
@@ -467,7 +468,7 @@ nav button.keyboard-togglebutton {
 
 
 
-/*** KEYBOARD LAYOUT *****************************************************/
+/*** KEYBOARD LAYOUT *********************************/
 
 #keycontent {
     padding: 15px 11px 8px 14px;
@@ -529,7 +530,7 @@ div#keyboard div.spacer-small {
     height: 16px;
 }
 
-/*** KEYBOARD STYLES *****************************************************/
+/*** KEYBOARD STYLES *********************************/
 div#keyboard button {
     border: 0px;
     border-radius: 4px;
@@ -660,7 +661,7 @@ div#keyboard button.pressed .shortcut {
     outline: 1px solid #333;
 }
 
-/*** KEYBOARD BUTTON STYLES *****************************************************/
+/*** KEYBOARD BUTTON STYLES **************************/
 
 div#keyboard button.nomod .label {
     color: #fff;
@@ -977,7 +978,7 @@ div#keyboard button.mod-other.mod-active {
 
 
 
-/*** SEARCHBOX *****************************************************/
+/*** SEARCHBOX ***************************************/
 
 
 #search {
@@ -1006,7 +1007,8 @@ div#keyboard button.mod-other.mod-active {
     right: 12px;
     width: 16px;
     height: 16px;
-    background: url('../images/sprites.png') no-repeat -34px -14px;
+    /* FIXME Deprecated sprite usage. Replace with icon OR possibly '.chosen-search' class for automatic searchbox */
+    /* background: url('../images/sprites.png') no-repeat -34px -14px; */
 
 }
 
@@ -1117,7 +1119,7 @@ div#keyboard button.mod-other.mod-active {
 }
 
 
-/*** FOOTER *****************************************************/
+/*** FOOTER ******************************************/
 
 #footer {
     display: table-row;
@@ -1145,7 +1147,8 @@ div#keyboard button.mod-other.mod-active {
 
 
 
-/* Retina compatibility */
+/* Retina compatibility 
+Deprecated in favor of using SVG icons
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-resolution: 144dpi) {
 
@@ -1164,3 +1167,4 @@ only screen and (min-resolution: 144dpi) {
         background-repeat: no-repeat !important;
     }
 }
+*/
