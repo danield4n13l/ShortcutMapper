@@ -99,25 +99,32 @@
                     <select id="keyboardtype_select" name="keyboardtype_select"
                         class="chosen-select keyboard-select"></select>
                 </div>
+                <div id="search">
+                    <div id="searchbox">
+                        <input id="searchfield" name="searchfield" placeholder="Search for keybinds..." />
+                        <span class="icon"></span>
+                        <div id="search_results"></div>
+                    </div>
+                </div>
             </nav>
         </header>
 
         <div id="content">
+            <div class="snaphelper custScrollbar"></div> <!-- TODO for scrollbar -->
             <div id="contentwrap">
-                <div id="keycontent"></div>
-                <div id="othercontent">
-                    <div id="keyinfo"></div>
-                    <div id="search">
-                        <div id="searchbox">
-                            <input id="searchfield" name="searchfield" placeholder="Search for keybinds..." />
-                            <span class="icon"></span>
-                            <div id="search_results"></div>
-                        </div>
-                    </div>
-                    <div id="mousecontent"></div>
+                <div class="snaphelper">
+                    <div id="keycontent"></div>
+                    <span class="snaphelper"></span>
+                    <span class="snaphelper"></span>
+                    <span class="snaphelper"></span>
                 </div>
             </div>
+            <div id="othercontent">
+                <div id="keyinfo"></div>
+                <div id="mousecontent"></div>
+            </div>
         </div>
+        <div></div>
         <div id="search_blurdetect"></div>
 
         <div id="footer">

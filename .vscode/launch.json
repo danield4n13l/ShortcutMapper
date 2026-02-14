@@ -8,31 +8,14 @@
             "type": "chrome",
             "request": "launch",
             "sourceMaps": true,
-            "resolveSourceMapLocations": [
-                "content/javascripts/**/*.js"
-            ],
-            "perScriptSourcemaps": "auto",
-            "disableNetworkCache": true,
-            "includeLaunchArgs": true,
-            "name": "Launch Chrome with Five Server",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}",
-            "preLaunchTask": "Start Five Server",
-            "postDebugTask": "Stop Five Server",
-            "runtimeArgs": [
-                "--enable-features=DevToolsWellKnown,DevToolsAutomaticFileSystems"
-            ]
-        },
-        {
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": true,
             "outFiles": [
                 "content/**/*.js"
             ],
             "perScriptSourcemaps": "auto",
             "disableNetworkCache": true,
             "includeLaunchArgs": true,
+            "cleanUp": "onlyTab",
+            "smartStep": true,
             "name": "Launch Chrome",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}",

@@ -11,6 +11,7 @@ https://github.com/timothylong/Responsive-Sticky-Footer/blob/master/index.html
 html,
 body {
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -21,12 +22,25 @@ body {
     padding: 0;
     margin: 0;
     -webkit-text-size-adjust: auto;
+    overflow-x: hidden;
 }
 
 #mainwrap {
-    display: table;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
     height: 100%;
-    width: 100%;
+    width: 99vw;
+}
+
+span.snaphelper {
+    position: relative;
+    display: block;
+    width: 1px;
+    height: 1px;
+    scroll-snap-align: center;
 }
 
 /** Icons  *******************************************/
@@ -51,7 +65,7 @@ header {
     flex-direction: column;
     align-items: center;
     color: #ffffff;
-    width: 100vw;
+    /* width: 100vw; */
     text-align: center;
 }
 
@@ -126,20 +140,53 @@ header p {
 }
 
 /** Content layout ***********************************/
-
-#contentwrap {
-    position: relative;
-    width: 1280px;
-    margin: 1px auto 0 auto;
-}
-
 #content {
     display: flex;
     height: auto;
+    width: 100%;
 }
 
-#keycontent {
-    height: 372px;
+#contentwrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;    /* FIXME this does fix clipping when fully shown, but now it isn't centered */
+    margin: 1px auto 0 auto;
+    overflow-x: overlay;    /* BUG actually this is a bug when defining both x and y overflows. the scrollbars appear and set this to clip */
+    overflow-y: clip;
+    overflow-clip-margin: 5em;
+    scrollbar-width: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+#contentwrap div.snaphelper {
+    position: relative;
+    display: block;
+    width: fit-content;
+    margin: 0 5%;
+}
+
+#contentwrap div.snaphelper > span.snaphelper {
+    top:50%;
+    display: block;
+    position: relative;
+}
+
+#contentwrap div.snaphelper > span.snaphelper:first-of-type {
+    left: 0%;
+}
+#contentwrap div.snaphelper > span.snaphelper:not(:first-of-type):not(:last-of-type) {
+    left: 50%;
+}
+#contentwrap div.snaphelper > span.snaphelper:last-of-type {
+    left: 100%;
+}
+
+div.snaphelper #keycontent {
+    display: block;
+    width: max-content;
+    min-height: 370px;
 }
 
 #othercontent {
@@ -156,10 +203,7 @@ header p {
 }
 
 #search {
-    position: absolute;
-    left: 365px;
-    /* = (contentwrap.width-550)/2; */
-    width: 550px;
+    position: relative;
 }
 
 #mousecontent {
@@ -212,7 +256,7 @@ nav {
     flex-wrap: wrap;
     align-items: stretch;
     align-content: space-between;
-    justify-content: space-evenly;
+    justify-content: center;
     row-gap: 1rem;
     column-gap: 2rem;
     margin: 2rem 1rem;
@@ -279,7 +323,7 @@ nav button {
     cursor: pointer;
 }
 
-nav button > i:only-child {
+nav button>i:only-child {
     aspect-ratio: 1 / 1;
     align-self: center;
     display: block;
@@ -315,6 +359,7 @@ nav button div i.ph {
 nav .chosen-container-single.keyboard-select .chosen-single div {
     width: 36px;
 }
+
 nav .chosen-container-single.keyboard-select .chosen-single div b {
     padding-right: 10px;
     /* ph-keyboard SVG in CSS 
@@ -623,7 +668,7 @@ div#keyboard button .label {
     left: 0;
     width: 8px;
     padding: 2px 0 0 4px;
-    font-size: 10px;
+    font-size: .75rem;
     font-weight: 400;
     color: #6b6b6b;
     text-align: left;
@@ -634,31 +679,32 @@ div#keyboard button .shortcut {
     display: block;
     position: absolute;
     bottom: 4px;
-    left: -1px;
+    left: 0px;
     font-family: 'Lato', sans-serif;
     width: 90%;
     max-height: 32px;
     padding: 0px 3px 0 3px;
     font-size: 0.6vw;
     font-weight: 300;
-    line-height: 8px;
+    line-height: normal;
     color: #ffffff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.36);
     text-align: center;
     text-rendering: optimizeLegibility;
-    text-overflow: clip;
+    text-overflow: ellipsis;
     overflow: hidden;
     word-wrap: break-word;
 }
 
 div#keyboard button.hasitems:hover .shortcut,
 div#keyboard button.hasitems.pressed .shortcut {
-    overflow: hidden;
+    width: max-content;
     text-overflow: ellipsis;
     word-wrap: break-word;
     display: block;
     text-align: center;
-    font-size: 1vw;
+    font-size: 1.25rem;
+    line-height: normal;
 }
 
 div#keyboard button.hasitems:hover:is(.nomod, .control, .command, .alt, .shift, .multi, .other),
@@ -676,7 +722,7 @@ div#keyboard div.keyitems {
 div#keyboard button:hover .shortcut,
 div#keyboard button.pressed .shortcut {
     width: 200%;
-    max-width: 25vw;
+    max-width: 50vw;
     overflow: visible;
     background: inherit;
     max-height: none;
@@ -687,7 +733,7 @@ div#keyboard button.pressed .shortcut {
     left: 50%;
     transform: translate(-50%, 0);
     bottom: auto;
-    z-index: 2;
+    z-index: 12;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ddd;
@@ -1015,7 +1061,8 @@ div#keyboard button.mod-other.mod-active {
 
 
 #search {
-    height: 100px;
+    min-height: 40px;
+    flex-basis: 100%;
 }
 
 #searchbox {
@@ -1027,7 +1074,7 @@ div#keyboard button.mod-other.mod-active {
 #searchbox input {
     z-index: 2000;
     outline: none;
-    width: 224px;
+    width: 250px;
     padding: 7px 12px;
     margin: 0px;
 }
