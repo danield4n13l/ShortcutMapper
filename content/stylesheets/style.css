@@ -147,24 +147,25 @@ header p {
 }
 
 #contentwrap {
-    display: flex;
+    display: block;
     justify-content: center;
     width: 100%;    /* FIXME this does fix clipping when fully shown, but now it isn't centered */
     margin: 1px auto 0 auto;
+    padding: 2rem 5%;
     overflow-x: overlay;    /* BUG actually this is a bug when defining both x and y overflows. the scrollbars appear and set this to clip */
-    overflow-y: clip;
+    overflow-y: hidden;
     overflow-clip-margin: 5em;
     scrollbar-width: auto;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
 }
 
 #contentwrap div.snaphelper {
     position: relative;
     display: block;
     width: fit-content;
-    margin: 0 5%;
+    /* margin: 0 5%; */
 }
 
 #contentwrap div.snaphelper > span.snaphelper {
